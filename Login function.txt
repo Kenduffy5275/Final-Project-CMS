@@ -1,0 +1,44 @@
+///Contact Management System///
+//login
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+int main (){
+	
+	char username[10]="Unewhaven", password[10]="admin", login[10], pass[10];
+	int n=1, x, y;
+	
+	do{
+		printf("Please enter a username: ");
+		scanf("%s",login);
+		
+		printf("Please enter a password: ");
+		scanf("%s",pass);
+		
+		x=strcmp(login,username);
+		y=strcmp(pass,password);
+		
+		if(x==0 && y==0){
+			printf("Login Successful\n");
+			return 0;
+		}
+		else if (x!=0 && y==0){
+			printf("Username Not Found\n",3-n);
+			n++;
+		}
+		else if (x==0 && y!=0){
+			printf("Incorrect Password\n", 3-n);
+			n++;
+		}
+		else{
+			printf("Incorrect Username and Password\n", 3-n);
+			n++;
+		}
+		if(n>3){
+			printf("To Many Incorrect Logins\nAccess Denied");
+		}
+	}while(n<=3);
+	
+}
